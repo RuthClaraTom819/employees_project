@@ -42,6 +42,10 @@ class UploadFileView(generics.CreateAPIView):
     serializer_class = FileUploadSerializer
     
     def post(self, request, *args, **kwargs):
+        """
+        Api to upload a csv file and insert 
+        the data to employee model
+        """
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         file = serializer.validated_data['file']
